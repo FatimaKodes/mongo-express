@@ -110,11 +110,7 @@ describe('Router document', () => {
   it('DEL /db/<dbName>/<collection>/<document> should delete the document');
   it('PUT /db/<dbName>/<collection>/<document> should update the document');
 
-
-
-
-
-   describe('Document with a $-prefixed field name', () => {
+  describe('Document with a $-prefixed field name', () => {
     it('should update a document that has a $-prefixed field', async () => {
       const _id = new ObjectId();
       await testCollection(db).insertOne({ _id, weird: { $concatArrays: ['$a', ['b']] } });
@@ -128,11 +124,6 @@ describe('Router document', () => {
       await testCollection(db).deleteOne({ _id });
     });
   });
-
-
-
-
-
 
   after(() => Promise.all([
     cleanAndCloseDb(db),
